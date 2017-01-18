@@ -8,9 +8,9 @@ module Aws
     DEFAULT_SIGNED_HEADERS = [:'content-type', :'host', :'x-amz-content-sha256', :'x-amz-date']
     HASH_ALGORITHM = 'AWS4-HMAC-SHA256'
 
-    def initialize(params)
-      extract_aws_data(params[:aws])
-      extract_request_data(params[:request])
+    def initialize(aws_config, request_data)
+      extract_aws_data(aws_config)
+      extract_request_data(request_data)
     end
 
     def signing_headers
